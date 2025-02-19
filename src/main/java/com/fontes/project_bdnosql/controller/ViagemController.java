@@ -14,8 +14,12 @@ import java.util.Optional;
 @RequestMapping(value = "/viagens")
 public class ViagemController {
 
-    @Autowired
-    private ViagemService viagemService;
+    private final ViagemService viagemService;
+
+
+    public ViagemController(ViagemService viagemService) {
+        this.viagemService = viagemService;
+    }
 
     @PostMapping
     public ResponseEntity<Viagem> saveViagem(@RequestBody Viagem viagem) {

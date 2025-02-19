@@ -14,8 +14,11 @@ import java.util.UUID;
 @Service
 public class EventoSensorService {
 
-    @Autowired
-    private EventoSensorRepository eventoSensorRepository;
+    private final EventoSensorRepository eventoSensorRepository;
+
+    public EventoSensorService(EventoSensorRepository eventoSensorRepository) {
+        this.eventoSensorRepository = eventoSensorRepository;
+    }
 
     public EventoSensor saveEventoSensor(EventoSensor eventoSensor) {
         if(eventoSensor.getSensorId() == null) {

@@ -12,8 +12,11 @@ import java.util.Optional;
 @Service
 public class ViagemService {
 
-    @Autowired
-    private ViagemRepository viagemRepository;
+    private final ViagemRepository viagemRepository;
+
+    public ViagemService(ViagemRepository viagemRepository) {
+        this.viagemRepository = viagemRepository;
+    }
 
     public Viagem saveViagem(Viagem viagem) {
         return viagemRepository.save(viagem);

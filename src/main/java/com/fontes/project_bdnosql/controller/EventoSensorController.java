@@ -14,8 +14,11 @@ import java.util.UUID;
 @RequestMapping(value = "/eventos")
 public class EventoSensorController {
 
-    @Autowired
-    private EventoSensorService eventoSensorService;
+    private final EventoSensorService eventoSensorService;
+
+    EventoSensorController(EventoSensorService eventoSensorService) {
+        this.eventoSensorService = eventoSensorService;
+    }
 
     @PostMapping(value = "")
     public ResponseEntity<EventoSensor> saveEventoSensor(@RequestBody EventoSensor eventoSensor) {
