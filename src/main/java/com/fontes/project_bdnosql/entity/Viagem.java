@@ -8,6 +8,8 @@ import java.util.Date;
 @Document("viagens")
 public class Viagem {
     @Id
+    private String id;
+
     private String userId;
 
     private Localizacao origem;
